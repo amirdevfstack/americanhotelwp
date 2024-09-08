@@ -1,0 +1,147 @@
+/* Overlay style */
+.overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	    z-index: 99999;
+}
+
+/* Overlay closing cross */
+.overlay .overlay-close {
+   width:40px; padding:0px 0px 1px 0px;
+    height:40px;cursor:pointer; z-index:9999999;
+    cursor:pointer;
+    position: absolute;
+    right: 10px;
+    top:10px;
+    overflow: hidden;
+    border: none;
+    background:#ee1d24;
+    color: #fff;
+}
+button#trigger-overlay {
+    outline: none; cursor:pointer;
+    border: none;
+    background: none;
+    text-align: center;
+    color: #fbfdfb; margin-top:-5px;
+    padding:7px 7px 0px 7px;
+}
+/* Menu style */
+.overlay nav {
+	text-align: center;
+	position: relative;
+	top: 50%;
+	height:100%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.overlay ul {
+	list-style: none; margin:0 0 0 0px;
+
+	height: 100%; width:100%;
+	position: relative;
+}
+ .overlay ul li:first-child { padding-top:60px;}
+
+ .overlay ul li {
+   display: block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    line-height:50px !important;
+}
+
+.overlay ul li a {
+	    font-size:30px;
+    font-weight:600;
+    display: block;
+    color: #fff;
+
+
+	text-decoration: none;
+		transition:0.5s ease;
+}
+
+.overlay ul li a:hover,
+.overlay ul li a:focus {
+	 color:#ff6da2;	letter-spacing:2px;
+}
+/* Effects */
+
+
+.container.overlay-open {
+/* Effects *
+	-webkit-transform: translateX(50%);
+	transform: translateX(50%);
+	/* Effects */
+}
+
+.container::after {
+	content: '';
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
+	-webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+	transition: opacity 0.1s, visibility 0s 0.5s;
+}
+
+.container.overlay-open::after {
+	visibility: visible;
+	opacity: 1;
+	-webkit-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+
+.overlay-contentpush {
+    background: rgba(6, 6, 6, 0.85);
+	visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translateX(-100%);
+	transform: translateX(-100%);
+	-webkit-transition: -webkit-transform 0.5s, visibility 0s 0.5s;
+	transition: transform 0.5s, visibility 0s 0.5s;
+}
+
+.overlay-contentpush.open {
+	visibility: visible;
+	-webkit-transform: translateX(0%);
+	transform: translateX(0%);
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+@media screen and (max-height: 30.5em) {
+	.overlay nav {
+		height:100%;
+		font-size:27px;
+	}
+	.overlay ul li {
+		min-height: auto;
+	}
+}
+@media (max-width:600px){
+    .overlay ul li a {
+    font-size:25px;
+	}
+	.overlay ul li {
+		line-height:40px;
+	}
+}
+@media (max-width:450px){
+button#trigger-overlay {
+ margin-top:-3px;
+ }
+     .overlay ul li a {
+    font-size:23px;
+	}
+ }
+ 
